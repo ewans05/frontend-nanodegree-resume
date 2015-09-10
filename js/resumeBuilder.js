@@ -56,7 +56,11 @@ var work = [
 
 var workCompany = HTMLworkEmployer.replace("%data%", work[0].company);
 var workLocation = HTMLworkLocation.replace("%data%", work[0].city);
+var workPosition = HTMLworkTitle.replace("%data%", work[0].title);
 
-$("workExperience").append(HTMLworkStart);
-$("workExperience").append(workCompany);
-$("workExperience").append(workLocation);
+$("#workExperience").append(HTMLworkStart);
+$("#workExperience").append(workCompany);
+$("#workExperience").append(workLocation);
+$("#workExperience").append(workPosition);
+
+
