@@ -36,6 +36,27 @@ $("#header").append(skillSet0);
 $("#header").append(skillSet1);
 $("#header").append(skillSet2);
 
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
+var work = [
+	{
+		"company" : "LCAM LLC",
+		"city" : "New York, NY",
+		"title" : "El Jefe"
+	},
+	{
+		"company" : "TF Corner",
+		"city" : "New York, NY",
+		"title" : "liason"
+	},
+	{
+		"company" : "Productions",
+		"city" : "Boston, MA",
+		"title" : "minion"
+	}
+]
+
+var workCompany = HTMLworkEmployer.replace("%data%", work[0].company);
+var workLocation = HTMLworkLocation.replace("%data%", work[0].city);
+
+$("workExperience").append(HTMLworkStart);
+$("workExperience").append(workCompany);
+$("workExperience").append(workLocation);
