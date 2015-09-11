@@ -79,3 +79,28 @@ $("#workExperience").append(workCompany2);
 $("#workExperience").append(workLocation2);
 $("#workExperience").append(workPosition2);
 
+/****EDUCATION*****/
+
+var education = {
+	"school" : "Boston College",
+	"schoolCity" : "Chestnut Hill, MA",
+	"degree" : "Bachelor Arts",
+	"major" : "Communication",
+	"minor" : "General Education",
+	"gradYear" : "2009"
+};
+
+var myCollege = HTMLschoolName.replace("%data%", education.school);
+var collegeTown = HTMLschoolLocation.replace("%data%", education.schoolCity);
+var degreeType = HTMLschoolDegree.replace("%data%", education.degree);
+var myMajor = HTMLschoolMajor.replace("%data%", education.major);
+var myMinor = HTMLschoolMinor.replace("%data%", education.minor);
+var gradYr = HTMLschoolDates.replace("%data%", education.gradYear);
+
+$("#education").append(HTMLschoolStart);
+$("#education").append(myCollege);
+$("#education").append(collegeTown);
+$("#education").append(degreeType);
+$("#education").append(myMajor);
+$("#education").append(myMinor);
+$("#education").append(gradYr);
