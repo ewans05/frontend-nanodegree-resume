@@ -19,6 +19,10 @@ var bio = {
 	"skills" : skills
 };
 
+/******BODY******/
+
+/****WORK HISTORY*****/
+
 var mobileNum = HTMLmobile.replace("%data%", bio.mobile);
 var formattedEmail = HTMLemail.replace("%data%", bio.email);
 var bioPic = HTMLbioPic.replace("%data%", bio.picture);
@@ -57,10 +61,21 @@ var work = [
 var workCompany = HTMLworkEmployer.replace("%data%", work[0].company);
 var workLocation = HTMLworkLocation.replace("%data%", work[0].city);
 var workPosition = HTMLworkTitle.replace("%data%", work[0].title);
+var workCompany1 = HTMLworkEmployer.replace("%data%", work[1].company);
+var workLocation1 = HTMLworkLocation.replace("%data%", work[1].city);
+var workPosition1 = HTMLworkTitle.replace("%data%", work[1].title);
+var workCompany2 = HTMLworkEmployer.replace("%data%", work[2].company);
+var workLocation2 = HTMLworkLocation.replace("%data%", work[2].city);
+var workPosition2 = HTMLworkTitle.replace("%data%", work[2].title);
 
 $("#workExperience").append(HTMLworkStart);
 $("#workExperience").append(workCompany);
 $("#workExperience").append(workLocation);
 $("#workExperience").append(workPosition);
-
+$("#workExperience").append(workCompany1);
+$("#workExperience").append(workLocation1);
+$("#workExperience").append(workPosition1);
+$("#workExperience").append(workCompany2);
+$("#workExperience").append(workLocation2);
+$("#workExperience").append(workPosition2);
 
