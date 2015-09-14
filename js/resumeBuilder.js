@@ -127,3 +127,42 @@ $("#education").append(onlineDates);
 $("#education").append(classURL);
 
 /*******PROJECTS*********/
+
+var projects = {
+	"udacityWork": [
+		{
+		"title" : "P0",
+		"dates" : "July 2015",
+		"description" : "Simple profile page",
+		"image" : "http://blog.udacity.com/wp-content/uploads/2013/07/Udacity_Logo.png"
+		},
+		{
+		"title" : "P1",
+		"dates" : "Aug 2015",
+		"description" : "HTML/CSS rofile page",
+		"image" : "http://s3.amazonaws.com/s3.userdata.www.universalsubtitles.org/teams/logo/cd2825021f6c59ca5d4dc5019a43d6896363783e.png"
+		}
+	]
+};
+
+var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.udacityWork[0].title);
+var myProjectDates = HTMLprojectDates.replace("%data%", projects.udacityWork[0].dates);
+var myProjectDescrip = HTMLprojectDescription.replace("%data%", projects.udacityWork[0].description);
+var myProjectImg = HTMLprojectImage.replace("%data%", projects.udacityWork[0].image);
+
+$("#projects").append(HTMLprojectStart);
+$("#projects").append(myProjectTitle);
+$("#projects").append(myProjectDates);
+$("#projects").append(myProjectDescrip);
+$("#projects").append(myProjectImg);
+
+var myProjectTitle1 = HTMLprojectTitle.replace("%data%", projects.udacityWork[1].title);
+var myProjectDates1 = HTMLprojectDates.replace("%data%", projects.udacityWork[1].dates);
+var myProjectDescrip1 = HTMLprojectDescription.replace("%data%", projects.udacityWork[1].description);
+var myProjectImg1 = HTMLprojectImage.replace("%data%", projects.udacityWork[1].image);
+
+$("#projects").append(myProjectTitle1);
+$("#projects").append(myProjectDates1);
+$("#projects").append(myProjectDescrip1);
+$("#projects").append(myProjectImg1);
+
