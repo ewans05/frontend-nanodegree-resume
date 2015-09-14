@@ -82,20 +82,30 @@ $("#workExperience").append(workPosition2);
 /****EDUCATION*****/
 
 var education = {
-	"school" : "Boston College",
-	"schoolCity" : "Chestnut Hill, MA",
-	"degree" : "Bachelor Arts",
-	"major" : "Communication",
-	"minor" : "General Education",
-	"gradYear" : "2009"
+	"schools" : [
+		{
+		"name" : "Boston College",
+		"schoolCity" : "Chestnut Hill, MA",
+		"degree" : "Bachelor Arts",
+		"major" : "Communication",
+		"minor" : "General Education",
+		"gradYear" : "2009"
+		},
+		{
+		"title" : "Front-End Development Nanodegree",
+		"programName" : "Udacity",
+		"dates" : "July 2015 - present",
+		"url" : "https://www.udacity.com"
+		},
+	]
 };
 
-var myCollege = HTMLschoolName.replace("%data%", education.school);
-var collegeTown = HTMLschoolLocation.replace("%data%", education.schoolCity);
-var degreeType = HTMLschoolDegree.replace("%data%", education.degree);
-var myMajor = HTMLschoolMajor.replace("%data%", education.major);
-var myMinor = HTMLschoolMinor.replace("%data%", education.minor);
-var gradYr = HTMLschoolDates.replace("%data%", education.gradYear);
+var myCollege = HTMLschoolName.replace("%data%", education.schools[0].name);
+var collegeTown = HTMLschoolLocation.replace("%data%", education.schools[0].schoolCity);
+var degreeType = HTMLschoolDegree.replace("%data%", education.schools[0].degree);
+var myMajor = HTMLschoolMajor.replace("%data%", education.schools[0].major);
+var myMinor = HTMLschoolMinor.replace("%data%", education.schools[0].minor);
+var gradYr = HTMLschoolDates.replace("%data%", education.schools[0].gradYear);
 
 $("#education").append(HTMLschoolStart);
 $("#education").append(myCollege);
@@ -104,3 +114,16 @@ $("#education").append(degreeType);
 $("#education").append(myMajor);
 $("#education").append(myMinor);
 $("#education").append(gradYr);
+
+var onlineProgram = HTMLonlineTitle.replace("%data%", education.schools[1].title);
+var classTitle = HTMLonlineTitle.replace("%data%", education.schools[1].programName);
+var onlineDates = HTMLonlineDates.replace("%data%", education.schools[1].dates);
+var classURL = HTMLonlineURL.replace("%data%", education.schools[1].url);
+
+$("#education").append(HTMLonlineClasses);
+$("#education").append(onlineProgram);
+$("#education").append(classTitle);
+$("#education").append(onlineDates);
+$("#education").append(classURL);
+
+/*******PROJECTS*********/
