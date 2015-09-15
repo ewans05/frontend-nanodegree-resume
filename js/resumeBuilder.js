@@ -1,6 +1,5 @@
 /****HEADER ****/
 
-var skills = ["laughing at my own jokes", "napping", "nunchucks"];
 var bio = {
 	"name" : "Sasha Ewan",
 	"role" : "Web Developer",
@@ -12,7 +11,7 @@ var bio = {
 		},
 	"picture" : "images/fry.jpg",
 	"welcomeMessage" : "I do solemnly swear that I am up to no good",
-	"skills" : skills
+	"skills" : ["laughing at my own jokes", "napping", "nunchucks"]
 };
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -93,6 +92,8 @@ var education = {
 		"minor" : "General Education",
 		"gradYear" : "2009"
 		},
+	],
+	"onlineCourses" : [
 		{
 		"title" : "Front-End Development Nanodegree",
 		"programName" : "Udacity",
@@ -102,12 +103,12 @@ var education = {
 	]
 };
 
-var myCollege = HTMLschoolName.replace("%data%", education.schools[0].name);
-var collegeTown = HTMLschoolLocation.replace("%data%", education.schools[0].schoolCity);
-var degreeType = HTMLschoolDegree.replace("%data%", education.schools[0].degree);
-var myMajor = HTMLschoolMajor.replace("%data%", education.schools[0].major);
-var myMinor = HTMLschoolMinor.replace("%data%", education.schools[0].minor);
-var gradYr = HTMLschoolDates.replace("%data%", education.schools[0].gradYear);
+var myCollege = HTMLschoolName.replace("%data%", education.schools.name);
+var collegeTown = HTMLschoolLocation.replace("%data%", education.schools.schoolCity);
+var degreeType = HTMLschoolDegree.replace("%data%", education.schools.degree);
+var myMajor = HTMLschoolMajor.replace("%data%", education.schools.major);
+var myMinor = HTMLschoolMinor.replace("%data%", education.schools.minor);
+var gradYr = HTMLschoolDates.replace("%data%", education.schools.gradYear);
 
 $("#education").append(HTMLschoolStart);
 $("#education").append(myCollege);
@@ -117,10 +118,10 @@ $("#education").append(myMajor);
 $("#education").append(myMinor);
 $("#education").append(gradYr);
 
-var onlineProgram = HTMLonlineTitle.replace("%data%", education.schools[1].title);
-var classTitle = HTMLonlineTitle.replace("%data%", education.schools[1].programName);
-var onlineDates = HTMLonlineDates.replace("%data%", education.schools[1].dates);
-var classURL = HTMLonlineURL.replace("%data%", education.schools[1].url);
+var onlineProgram = HTMLonlineTitle.replace("%data%", education.onlineCourses.title);
+var classTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses.programName);
+var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses.dates);
+var classURL = HTMLonlineURL.replace("%data%", education.onlineCourses.url);
 
 $("#education").append(HTMLonlineClasses);
 $("#education").append(onlineProgram);
