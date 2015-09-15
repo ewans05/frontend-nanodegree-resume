@@ -1,44 +1,46 @@
 /****HEADER ****/
 
-var formattedName;
-var formattedRole;
-
-formattedName = HTMLheaderName.replace("%data%", "Sasha Ewan");
-formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
-
-$("#header").prepend(formattedName);
-$("#header").append(formattedRole);
-
 var skills = ["laughing at my own jokes", "napping", "nunchucks"];
 var bio = {
-	"name" : "Sasha",
-	"mobile" : "555-5500",
-	"email" : "ewans05@gmail.com",
+	"name" : "Sasha Ewan",
+	"role" : "Web Developer",
+	contacts : 
+		{
+		"github" : "ewans05",
+		"mobile" : "555-5500",
+		"email" : "ewans05@gmail.com"
+		},
 	"picture" : "images/fry.jpg",
-	"welcomeMessage" : "I do solemnly swear I am up to no good",
+	"welcomeMessage" : "I do solemnly swear that I am up to no good",
 	"skills" : skills
 };
 
-/******BODY******/
-
-/****WORK HISTORY*****/
-
-var mobileNum = HTMLmobile.replace("%data%", bio.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.email);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var mobileNum = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var githubName = HTMLgithub.replace("%data%", bio.contacts.github);
 var bioPic = HTMLbioPic.replace("%data%", bio.picture);
 var message = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var skillSet0 = HTMLskills.replace("%data%", bio.skills[0]);
 var skillSet1 = HTMLskills.replace("%data%", bio.skills[1]);
 var skillSet2 = HTMLskills.replace("%data%", bio.skills[2]);
 
-$("#header").append(bioPic);
+$("#header").prepend(formattedName);
+$("#header").append(formattedRole);
 $("#header").append(mobileNum);
 $("#header").append(formattedEmail);
+$("#header").append(githubName);
+$("#header").append(bioPic);
 $("#header").append(message);
 $("#header").append(HTMLskillsStart);
 $("#header").append(skillSet0);
 $("#header").append(skillSet1);
 $("#header").append(skillSet2);
+
+/******BODY******/
+
+/****WORK HISTORY*****/
 
 var work = [
 	{
