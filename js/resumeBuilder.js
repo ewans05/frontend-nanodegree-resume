@@ -32,34 +32,60 @@ $("#header").append(formattedEmail);
 $("#header").append(githubName);
 $("#header").append(bioPic);
 $("#header").append(message);
-$("#header").append(HTMLskillsStart);
-$("#header").append(skillSet0);
-$("#header").append(skillSet1);
-$("#header").append(skillSet2);
+
+
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+	$("#header").append(skillSet0);
+	$("#header").append(skillSet1);
+	$("#header").append(skillSet2);	
+};
 
 /******BODY******/
 
 /****WORK HISTORY*****/
 
-var work = [
-	{
-		"company" : "LCAM LLC",
-		"city" : "New York, NY",
-		"title" : "El Jefe"
-	},
-	{
-		"company" : "TF Corner",
-		"city" : "New York, NY",
-		"title" : "liason"
-	},
-	{
-		"company" : "Productions",
-		"city" : "Boston, MA",
-		"title" : "minion"
-	}
-]
+var work = {
+	"jobs" : [
+		{
+			"company" : "LCAM LLC",
+			"city" : "New York, NY",
+			"title" : "El Jefe",
+			"dates" : "2005 - present",
+			"description" : "coordinating and facilitating"
+		},
+		{
+			"company" : "TF Corner",
+			"city" : "New York, NY",
+			"title" : "Liason",
+			"dates" : "2004 - 2005",
+			"description" : "real-estating type things"
+		},
+		{
+			"company" : "Productions LLC",
+			"city" : "Boston, MA",
+			"title" : "Minion",
+			"dates" : "2003 - 2004",
+			"description" : "picking things up and then putting them down"
+		}
+	]
+};
 
-var workCompany = HTMLworkEmployer.replace("%data%", work[0].company);
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+	var workCompany = HTMLworkEmployer.replace("%data%", work.jobs[job].company);
+	var workLocation = HTMLworkLocation.replace("%data%", work.jobs[job].city);
+	var workPosition = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var workDatesWorked = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var workDescrip = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	var formattedTitle  = workCompany + workPosition;
+	$(".work-entry:last").append(formattedTitle);
+	$("#workExperience").append(workLocation);
+	$("#workExperience").append(workDatesWorked);
+	$("#workExperience").append(workDescrip);
+};
+
+/*var workCompany = HTMLworkEmployer.replace("%data%", work[0].company);
 var workLocation = HTMLworkLocation.replace("%data%", work[0].city);
 var workPosition = HTMLworkTitle.replace("%data%", work[0].title);
 var workCompany1 = HTMLworkEmployer.replace("%data%", work[1].company);
@@ -78,7 +104,7 @@ $("#workExperience").append(workLocation1);
 $("#workExperience").append(workPosition1);
 $("#workExperience").append(workCompany2);
 $("#workExperience").append(workLocation2);
-$("#workExperience").append(workPosition2);
+$("#workExperience").append(workPosition2);*/
 
 /****EDUCATION*****/
 
