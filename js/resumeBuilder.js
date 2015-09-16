@@ -71,19 +71,27 @@ var work = {
 	]
 };
 
-for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
-	var workCompany = HTMLworkEmployer.replace("%data%", work.jobs[job].company);
-	var workLocation = HTMLworkLocation.replace("%data%", work.jobs[job].city);
-	var workPosition = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var workDatesWorked = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-	var workDescrip = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-	var formattedTitle  = workCompany + workPosition;
-	$(".work-entry:last").append(formattedTitle);
-	$("#workExperience").append(workLocation);
-	$("#workExperience").append(workDatesWorked);
-	$("#workExperience").append(workDescrip);
+function displayWork() {
+	for (job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
+		var workCompany = HTMLworkEmployer.replace("%data%", work.jobs[job].company);
+		var workLocation = HTMLworkLocation.replace("%data%", work.jobs[job].city);
+		var workPosition = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var workDatesWorked = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var workDescrip = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		var formattedTitle  = workCompany + workPosition;
+		$(".work-entry:last").append(formattedTitle);
+		$("#workExperience").append(workLocation);
+		$("#workExperience").append(workDatesWorked);
+		$("#workExperience").append(workDescrip);
+	}
 };
+
+displayWork();
+
+$(document).click(function(loc) {
+	
+});
 
 /*var workCompany = HTMLworkEmployer.replace("%data%", work[0].company);
 var workLocation = HTMLworkLocation.replace("%data%", work[0].city);
