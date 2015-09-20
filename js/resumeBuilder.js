@@ -169,14 +169,14 @@ var projects = {
 		{
 		"title" : "P0",
 		"dates" : "July 2015",
-		"description" : "Simple profile page",
+		"description" : "You will get acquainted with your text editor, creating and editing simple HTML and CSS files to create your very first webpage! You should be able to complete this project after reviewing Lesson 1 of the Intro to HTML & CSS course.",
 		"image" : "http://blog.udacity.com/wp-content/uploads/2013/07/Udacity_Logo.png"
 		},
 		{
 		"title" : "P1",
 		"dates" : "Aug 2015",
-		"description" : "HTML/CSS rofile page",
-		"image" : "http://s3.amazonaws.com/s3.userdata.www.universalsubtitles.org/teams/logo/cd2825021f6c59ca5d4dc5019a43d6896363783e.png"
+		"description" : "You will be provided with a design mockup as a PDF-file and must replicate that design in HTML and CSS. You will develop a responsive website that will display images, descriptions and links to each of the portfolio projects you will complete throughout the course of the Front-End Web Developer Nanodegree.",
+		"image" : "s3.amazonaws.com/s3.userdata.www.universalsubtitles.org/teams/logo/cd2825021f6c59ca5d4dc5019a43d6896363783e.png"
 		}
 	]
 };
@@ -208,13 +208,13 @@ projects.display = function() {
 		var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.udacityWork[project].title);
 		var myProjectDates = HTMLprojectDates.replace("%data%", projects.udacityWork[project].dates);
 		var myProjectDescrip = HTMLprojectDescription.replace("%data%", projects.udacityWork[project].description);
-		$(".project_entry:last").append(myProjectTitle);
-		$(".project_entry:last").append(myProjectDates);
-		$(".project_entry:last").append(myProjectDescrip);
+		$(".project-entry:last").append(myProjectTitle);
+		$(".project-entry:last").append(myProjectDates);
+		$(".project-entry:last").append(myProjectDescrip);
 		if (projects.udacityWork[project].image.length > 0) {		
 			for (var pic in projects.udacityWork[project].image) {
 				var myProjectImg = HTMLprojectImage.replace("%data%", projects.udacityWork[project].image[pic]);
-				$(".project_entry:last").append(myProjectImg);
+				$(".project-entry:last").append(myProjectImg);
 			}
 		}
 	}
