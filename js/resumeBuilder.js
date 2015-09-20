@@ -130,6 +130,12 @@ var education = {
 	]
 };
 
+/*function displayEd() {
+	for (school in education.schools) {
+
+	}
+};*/
+
 var myCollege = HTMLschoolName.replace("%data%", education.schools.name);
 var collegeTown = HTMLschoolLocation.replace("%data%", education.schools.schoolCity);
 var degreeType = HTMLschoolDegree.replace("%data%", education.schools.degree);
@@ -175,7 +181,7 @@ var projects = {
 	]
 };
 
-var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.udacityWork[0].title);
+/*var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.udacityWork[0].title);
 var myProjectDates = HTMLprojectDates.replace("%data%", projects.udacityWork[0].dates);
 var myProjectDescrip = HTMLprojectDescription.replace("%data%", projects.udacityWork[0].description);
 var myProjectImg = HTMLprojectImage.replace("%data%", projects.udacityWork[0].image);
@@ -194,5 +200,24 @@ var myProjectImg1 = HTMLprojectImage.replace("%data%", projects.udacityWork[1].i
 $("#projects").append(myProjectTitle1);
 $("#projects").append(myProjectDates1);
 $("#projects").append(myProjectDescrip1);
-$("#projects").append(myProjectImg1);
+$("#projects").append(myProjectImg1);*/
 
+projects.display = function() {
+	for (var project in projects.udacityWork) {
+		$("#projects").append(HTMLprojectStart);
+		var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.udacityWork[project].title);
+		var myProjectDates = HTMLprojectDates.replace("%data%", projects.udacityWork[project].dates);
+		var myProjectDescrip = HTMLprojectDescription.replace("%data%", projects.udacityWork[project].description);
+		$(".project_entry:last").append(myProjectTitle);
+		$(".project_entry:last").append(myProjectDates);
+		$(".project_entry:last").append(myProjectDescrip);
+		if (projects.udacityWork[project].image.length > 0) {		
+			for (var pic in projects.udacityWork[project].image) {
+				var myProjectImg = HTMLprojectImage.replace("%data%", projects.udacityWork[project].image[pic]);
+				$(".project_entry:last").append(myProjectImg);
+			}
+		}
+	}
+};
+
+projects.display();
