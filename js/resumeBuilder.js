@@ -7,7 +7,8 @@ var bio = {
 		{
 		"github" : "ewans05",
 		"mobile" : "555-5500",
-		"email" : "ewans05@gmail.com"
+		"email" : "ewans05@gmail.com",
+		"location" : "Bronx, NY"
 		},
 	"picture" : "images/fry.jpg",
 	"welcomeMessage" : "I do solemnly swear that I am up to no good",
@@ -221,3 +222,7 @@ projects.display = function() {
 };
 
 projects.display();
+
+/*******MAP*******/
+
+$("#mapDiv").append(googleMap);
