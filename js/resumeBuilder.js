@@ -1,48 +1,58 @@
 /****HEADER ****/
 
 var bio = {
-	"name" : "Sasha Ewan",
-	"role" : "Web Developer",
-	contacts : 
+	"bioInfo" : [
 		{
-		"github" : "ewans05",
-		"mobile" : "555-5500",
-		"email" : "ewans05@gmail.com",
-		"location" : "Bronx, NY"
-		},
-	"picture" : "images/fry.jpg",
-	"welcomeMessage" : "I do solemnly swear that I am up to no good",
-	"skills" : ["laughing at my own jokes", "napping", "nunchucks"]
+		"name" : "Sasha Ewan",
+		"role" : "Web Developer",
+		"contacts" : [
+			{
+			"github" : "ewans05",
+			"mobile" : "555-5500",
+			"email" : "ewans05@gmail.com",
+			"location" : "Bronx, NY"
+			}
+		],
+		"picture" : "images/fry.jpg",
+		"welcomeMessage" : "I do solemnly swear that I am up to no good",
+		"skills" : ["laughing at my own jokes", "napping", "nunchucks"]
+		}
+	]
 };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var mobileNum = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var githubName = HTMLgithub.replace("%data%", bio.contacts.github);
-var myLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-var bioPic = HTMLbioPic.replace("%data%", bio.picture);
-var message = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-var skillSet0 = HTMLskills.replace("%data%", bio.skills[0]);
-var skillSet1 = HTMLskills.replace("%data%", bio.skills[1]);
-var skillSet2 = HTMLskills.replace("%data%", bio.skills[2]);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#topContacts").append(mobileNum);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(githubName);
-$("#topContacts").append(myLocation);
-$("#header").append(bioPic);
-$("#header").append(message);
-
-
-if (bio.skills.length > 0) {
+bio.display = function() {
+	for (var item in bio.bioInfo) {
+		var formattedName = HTMLheaderName.replace("%data%", bio.bioInfo[item].name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.bioInfo[item].role);
+		var bioPic = HTMLbioPic.replace("%data%", bio.bioInfo[item].picture);
+		var message = HTMLwelcomeMsg.replace("%data%", bio.bioInfo[item].welcomeMessage);
+		$("#header").prepend(formattedRole);
+		$("#header").prepend(formattedName);
+		$("#header").append(bioPic);
+		$("#header").append(message);
+	}
+	for (var item2 in bio.bioInfo[item].contacts) {
+		var mobileNum = HTMLmobile.replace("%data%", bio.bioInfo[item].contacts[item2].mobile);
+		var formattedEmail = HTMLemail.replace("%data%", bio.bioInfo[item].contacts[item2].email);
+		var githubName = HTMLgithub.replace("%data%", bio.bioInfo[item].contacts[item2].github);
+		var myLocation = HTMLlocation.replace("%data%", bio.bioInfo[item].contacts[item2].location);	
+		$("#topContacts").append(mobileNum);
+		$("#topContacts").append(formattedEmail);
+		$("#topContacts").append(githubName);
+		$("#topContacts").append(myLocation);	
+	}
 	$("#header").append(HTMLskillsStart);
-	$("#header").append(skillSet0);
-	$("#header").append(skillSet1);
-	$("#header").append(skillSet2);	
+	if (bio.bioInfo[item].skills.length > 0) {
+		for (var skill in bio.bioInfo[item].skills) {
+			var skillSet0 = HTMLskills.replace("%data%", bio.bioInfo[item].skills[skill]);
+			$("#header").append(skillSet0);
+		}
+	}
 };
+
+bio.display();
+/*var skillSet1 = HTMLskills.replace("%data%", bio.skills[1]);
+var skillSet2 = HTMLskills.replace("%data%", bio.skills[2]);*/
 
 $("#main").append(internationalizeButton);
 function inName(name) {
@@ -101,14 +111,14 @@ function displayWork() {
 
 displayWork();
 
+/*****CLICK FUNCTION*****/
+
 $(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
 
 	logClicks(x,y);
 });
-
-
 
 /****EDUCATION*****/
 
@@ -164,33 +174,6 @@ education.display = function() {
 
 education.display();
 
-
-/*var myCollege = HTMLschoolName.replace("%data%", education.schools.name);
-var collegeTown = HTMLschoolLocation.replace("%data%", education.schools.schoolCity);
-var degreeType = HTMLschoolDegree.replace("%data%", education.schools.degree);
-var myMajor = HTMLschoolMajor.replace("%data%", education.schools.major);
-var myMinor = HTMLschoolMinor.replace("%data%", education.schools.minor);
-var gradYr = HTMLschoolDates.replace("%data%", education.schools.gradYear);
-
-$("#education").append(HTMLschoolStart);
-$("#education").append(myCollege);
-$("#education").append(collegeTown);
-$("#education").append(degreeType);
-$("#education").append(myMajor);
-$("#education").append(myMinor);
-$("#education").append(gradYr);
-
-var onlineProgram = HTMLonlineTitle.replace("%data%", education.onlineCourses.title);
-var classTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses.programName);
-var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses.dates);
-var classURL = HTMLonlineURL.replace("%data%", education.onlineCourses.url);
-
-$("#education").append(HTMLonlineClasses);
-$("#education").append(onlineProgram);
-$("#education").append(classTitle);
-$("#education").append(onlineDates);
-$("#education").append(classURL);*/
-
 /*******PROJECTS*********/
 
 var projects = {
@@ -209,27 +192,6 @@ var projects = {
 		}
 	]
 };
-
-/*var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.udacityWork[0].title);
-var myProjectDates = HTMLprojectDates.replace("%data%", projects.udacityWork[0].dates);
-var myProjectDescrip = HTMLprojectDescription.replace("%data%", projects.udacityWork[0].description);
-var myProjectImg = HTMLprojectImage.replace("%data%", projects.udacityWork[0].image);
-
-$("#projects").append(HTMLprojectStart);
-$("#projects").append(myProjectTitle);
-$("#projects").append(myProjectDates);
-$("#projects").append(myProjectDescrip);
-$("#projects").append(myProjectImg);
-
-var myProjectTitle1 = HTMLprojectTitle.replace("%data%", projects.udacityWork[1].title);
-var myProjectDates1 = HTMLprojectDates.replace("%data%", projects.udacityWork[1].dates);
-var myProjectDescrip1 = HTMLprojectDescription.replace("%data%", projects.udacityWork[1].description);
-var myProjectImg1 = HTMLprojectImage.replace("%data%", projects.udacityWork[1].image);
-
-$("#projects").append(myProjectTitle1);
-$("#projects").append(myProjectDates1);
-$("#projects").append(myProjectDescrip1);
-$("#projects").append(myProjectImg1);*/
 
 projects.display = function() {
 	for (var project in projects.udacityWork) {
