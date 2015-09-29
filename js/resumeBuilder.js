@@ -46,7 +46,7 @@ bio.display = function() {
 
 bio.display();
 
-
+/*****LAST NAME CAPS BUTTON*****/
 
 $("#main").append(internationalizeButton);
 function inName(name) {
@@ -104,6 +104,8 @@ function displayWork() {
 };
 
 displayWork();
+
+/*******CLICK PAGE FUNCTION*******/
 
 $(document).click(function(loc) {
 	var x = loc.pageX;
@@ -168,33 +170,6 @@ education.display = function() {
 
 education.display();
 
-
-/*var myCollege = HTMLschoolName.replace("%data%", education.schools.name);
-var collegeTown = HTMLschoolLocation.replace("%data%", education.schools.schoolCity);
-var degreeType = HTMLschoolDegree.replace("%data%", education.schools.degree);
-var myMajor = HTMLschoolMajor.replace("%data%", education.schools.major);
-var myMinor = HTMLschoolMinor.replace("%data%", education.schools.minor);
-var gradYr = HTMLschoolDates.replace("%data%", education.schools.gradYear);
-
-$("#education").append(HTMLschoolStart);
-$("#education").append(myCollege);
-$("#education").append(collegeTown);
-$("#education").append(degreeType);
-$("#education").append(myMajor);
-$("#education").append(myMinor);
-$("#education").append(gradYr);
-
-var onlineProgram = HTMLonlineTitle.replace("%data%", education.onlineCourses.title);
-var classTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses.programName);
-var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses.dates);
-var classURL = HTMLonlineURL.replace("%data%", education.onlineCourses.url);
-
-$("#education").append(HTMLonlineClasses);
-$("#education").append(onlineProgram);
-$("#education").append(classTitle);
-$("#education").append(onlineDates);
-$("#education").append(classURL);*/
-
 /*******PROJECTS*********/
 
 var projects = {
@@ -213,27 +188,6 @@ var projects = {
 		}
 	]
 };
-
-/*var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.udacityWork[0].title);
-var myProjectDates = HTMLprojectDates.replace("%data%", projects.udacityWork[0].dates);
-var myProjectDescrip = HTMLprojectDescription.replace("%data%", projects.udacityWork[0].description);
-var myProjectImg = HTMLprojectImage.replace("%data%", projects.udacityWork[0].image);
-
-$("#projects").append(HTMLprojectStart);
-$("#projects").append(myProjectTitle);
-$("#projects").append(myProjectDates);
-$("#projects").append(myProjectDescrip);
-$("#projects").append(myProjectImg);
-
-var myProjectTitle1 = HTMLprojectTitle.replace("%data%", projects.udacityWork[1].title);
-var myProjectDates1 = HTMLprojectDates.replace("%data%", projects.udacityWork[1].dates);
-var myProjectDescrip1 = HTMLprojectDescription.replace("%data%", projects.udacityWork[1].description);
-var myProjectImg1 = HTMLprojectImage.replace("%data%", projects.udacityWork[1].image);
-
-$("#projects").append(myProjectTitle1);
-$("#projects").append(myProjectDates1);
-$("#projects").append(myProjectDescrip1);
-$("#projects").append(myProjectImg1);*/
 
 projects.display = function() {
 	for (var project in projects.udacityWork) {
