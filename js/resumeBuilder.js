@@ -1,18 +1,20 @@
+'use strict';
+
 /****HEADER ****/
 
 var bio = {
-	"name" : "Sasha Ewan",
-	"role" : "Web Developer",
+	'name' : 'Sasha Ewan',
+	'role' : 'Web Developer',
 	contacts : 
 		{
-		"github" : "ewans05",
-		"mobile" : "555-5500",
-		"email" : "ewans05@gmail.com",
-		"location" : "Bronx, NY"
+		'github' : 'ewans05',
+		'mobile' : '555-5500',
+		'email' : 'ewans05@gmail.com',
+		'location' : 'Bronx, NY'
 		},
-	"picture" : "images/fry.jpg",
-	"welcomeMessage" : "I do solemnly swear that I am up to no good",
-	"skills" : ["laughing at my own jokes", "napping", "nunchucks"]
+	'picture' : 'images/fry.jpg',
+	'welcomeMessage' : 'I do solemnly swear that I am up to no good',
+	'skills' : ['laughing at my own jokes', 'napping', 'nunchucks']
 };
 
 bio.display = function() {
@@ -31,14 +33,17 @@ bio.display = function() {
 	$("#topContacts").append(formattedEmail);
 	$("#topContacts").append(githubName);
 	$("#topContacts").append(myLocation);
+	$("#footerContacts").append(mobileNum);
+	$("#footerContacts").append(formattedEmail);
+	$("#footerContacts").append(githubName);
+	$("#footerContacts").append(myLocation);
 	$("#header").append(bioPic);
 	$("#header").append(message);
 
-
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
-		for (var skill in bio.skills) {
-			var skillSet = HTMLskills.replace("%data%", bio.skills[skill]);
+		for (var i = 0; i < bio.skills.length; i++) {
+			var skillSet = HTMLskills.replace("%data%", bio.skills[i]);
 			$("#header").append(skillSet);
 		}
 	}	
@@ -62,33 +67,33 @@ function inName(name) {
 /****WORK HISTORY*****/
 
 var work = {
-	"jobs" : [
+	'jobs' : [
 		{
-			"company" : "LCAM LLC",
-			"city" : "New York, NY",
-			"title" : "El Jefe",
-			"dates" : "2005 - present",
-			"description" : "coordinating and facilitating"
+			'company' : 'LCAM LLC',
+			'city' : 'New York, NY',
+			'title' : 'El Jefe',
+			'dates' : '2005 - present',
+			'description' : 'coordinating and facilitating'
 		},
 		{
-			"company" : "TF Corner",
-			"city" : "New York, NY",
-			"title" : "Liason",
-			"dates" : "2004 - 2005",
-			"description" : "real-estating type things"
+			'company' : 'TF Corner',
+			'city' : 'New York, NY',
+			'title' : 'Liason',
+			'dates' : '2004 - 2005',
+			'description' : 'real-estating type things'
 		},
 		{
-			"company" : "Productions LLC",
-			"city" : "Boston, MA",
-			"title" : "Minion",
-			"dates" : "2003 - 2004",
-			"description" : "picking things up and then putting them down"
+			'company' : 'Productions LLC',
+			'city' : 'Boston, MA',
+			'title' : 'Minion',
+			'dates' : '2003 - 2004',
+			'description' : 'picking things up and then putting them down'
 		}
 	]
 };
 
-function displayWork() {
-	for (job in work.jobs) {
+work.display = function () {
+	for (var job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var workCompany = HTMLworkEmployer.replace("%data%", work.jobs[job].company);
 		var workLocation = HTMLworkLocation.replace("%data%", work.jobs[job].city);
@@ -103,7 +108,7 @@ function displayWork() {
 	}
 };
 
-displayWork();
+work.display();
 
 /*******CLICK PAGE FUNCTION*******/
 
@@ -119,22 +124,22 @@ $(document).click(function(loc) {
 /****EDUCATION*****/
 
 var education = {
-	"schools" : [
+	'schools' : [
 		{
-		"name" : "Boston College",
-		"schoolCity" : "Chestnut Hill, MA",
-		"degree" : "Bachelor Arts",
-		"major" : "Communication",
-		"minor" : "General Education",
-		"gradYear" : "2009"
+		'name' : 'Boston College',
+		'schoolCity' : 'Chestnut Hill, MA',
+		'degree' : 'Bachelor Arts',
+		'major' : 'Communication',
+		'minor' : 'General Education',
+		'gradYear' : '2009'
 		},
 	],
-	"onlineCourses" : [
+	'onlineCourses' : [
 		{
-		"title" : "Front-End Development Nanodegree",
-		"programName" : "Udacity",
-		"dates" : "July 2015 - present",
-		"url" : "https://www.udacity.com"
+		'title' : 'Front-End Development Nanodegree',
+		'programName' : 'Udacity',
+		'dates' : 'July 2015 - present',
+		'url' : 'https://www.udacity.com'
 		},
 	]
 };
@@ -155,7 +160,7 @@ education.display = function() {
 		$(".education-entry").append(myMinor);
 		$(".education-entry").append(gradYr);
 	}
-	for (school in education.onlineCourses) {
+	for (var school in education.onlineCourses) {
 		$(".education-entry").append(HTMLonlineClasses);
 		var onlineProgram = HTMLonlineTitle.replace("%data%", education.onlineCourses[school].title);
 		var classTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[school].programName);
@@ -173,18 +178,18 @@ education.display();
 /*******PROJECTS*********/
 
 var projects = {
-	"udacityWork": [
+	'udacityWork': [
 		{
-		"title" : "P0",
-		"dates" : "July 2015",
-		"description" : "You will get acquainted with your text editor, creating and editing simple HTML and CSS files to create your very first webpage! You should be able to complete this project after reviewing Lesson 1 of the Intro to HTML & CSS course.",
-		"image" : ["http://blog.udacity.com/wp-content/uploads/2013/07/Udacity_Logo.png"]
+		'title' : 'P0',
+		'dates' : 'July 2015',
+		'description' : 'You will get acquainted with your text editor, creating and editing simple HTML and CSS files to create your very first webpage! You should be able to complete this project after reviewing Lesson 1 of the Intro to HTML & CSS course.',
+		'image' : ['http://blog.udacity.com/wp-content/uploads/2013/07/Udacity_Logo.png']
 		},
 		{
-		"title" : "P1",
-		"dates" : "Aug 2015",
-		"description" : "You will be provided with a design mockup as a PDF-file and must replicate that design in HTML and CSS. You will develop a responsive website that will display images, descriptions and links to each of the portfolio projects you will complete throughout the course of the Front-End Web Developer Nanodegree.",
-		"image" : ["http://s3.amazonaws.com/s3.userdata.www.universalsubtitles.org/teams/logo/cd2825021f6c59ca5d4dc5019a43d6896363783e.png"]
+		'title' : 'P1',
+		'dates' : 'Aug 2015',
+		'description' : 'You will be provided with a design mockup as a PDF-file and must replicate that design in HTML and CSS. You will develop a responsive website that will display images, descriptions and links to each of the portfolio projects you will complete throughout the course of the Front-End Web Developer Nanodegree.',
+		'image' : ['http://s3.amazonaws.com/s3.userdata.www.universalsubtitles.org/teams/logo/cd2825021f6c59ca5d4dc5019a43d6896363783e.png']
 		}
 	]
 };
