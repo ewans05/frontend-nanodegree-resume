@@ -139,7 +139,7 @@ var education = {
 		'title' : 'Front-End Development Nanodegree',
 		'programName' : 'Udacity',
 		'dates' : 'July 2015 - present',
-		'url' : 'https://www.udacity.com'
+		'url' : '<a href="https://www.udacity.com target="_blank">www.udacity.com</a>'
 		},
 	]
 };
