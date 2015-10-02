@@ -83,6 +83,7 @@ h5 {
   color: #999;
   line-height: 16px;
   float: left;
+  padding-top: 3px;
 }
 
 .location-text {
@@ -114,13 +115,7 @@ a {
   padding-left: 25px;
 }
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
-  padding-bottom: 5px;
-}
+
 
 #skills-h3 {
   color: #89bdd3;
@@ -184,29 +179,42 @@ a {
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: 9em;
+  height: 11em;
   display: none;
 }
 
 img {
-  padding: 10px;
+  padding: 20px 10px;
+  height: 8em;
 }
 
 span {
   padding: 5px;
 }
 
+.welcome-message {
+  font-style: italic;
+  font-size: 18px;
+  color: #f3f3f3;
+  line-height: 28px;
+  padding-bottom: 5px;
+}
+
 #online-class {
   padding-top: 25px;
 }
 
-#map {
-  /*width: 90%;
-  height: 90%;*/
-}
-
 #lets-connect {
   text-align: center;
+}
+
+#work-title {
+  margin-bottom: 0;
+}
+
+#work-item{
+  padding-top: 15px;
 }
 
 /* Media queries to handle various device widths */
